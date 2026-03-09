@@ -1,0 +1,18 @@
+{
+  "name": "nft-marketplace-checkout",
+  "version": "1.0.0",
+  "description": "NFT Marketplace Checkout System — calculates cart totals with configurable discount rules",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/index.ts",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
