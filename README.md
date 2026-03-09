@@ -66,6 +66,6 @@ I used [Claude Code](https://docs.anthropic.com/en/docs/claude-code) (Anthropic'
 
 1. **I wrote the docs first.** `DECISIONS.md`, `IMPLEMENTATION_PLAN.md`, and `CLAUDE.md` were written by me before any code existed. Every ambiguous requirement was analyzed, options weighed, and a decision made — that thinking is mine.
 2. **Claude Code implemented from the plan.** I gave it the docs as context and had it generate the TypeScript code, tests, and project config. It followed the architecture and decisions I laid out.
-3. **I reviewed and iterated.** I caught issues in the output (e.g. the per-product vs per-cart evaluation strategy in `Checkout.total()` — see [DECISIONS.md #7](./DECISIONS.md)), questioned assumptions, and had Claude Code fix them. The final code reflects that back-and-forth.
+3. **I reviewed and iterated.** I caught issues in the output, questioned assumptions, and had Claude Code fix them. The final code reflects that back-and-forth.
 
 The intent: show that I can think through a problem, make defensible decisions, and use AI tooling effectively — not as a shortcut, but as a multiplier.
