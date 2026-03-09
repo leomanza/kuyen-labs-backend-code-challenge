@@ -60,13 +60,13 @@ Reasoning: the spec explicitly flags that prices fluctuate. Caching would mean a
 
 ---
 
-## 4. Rule evaluation is per-cart, not per-product-group
+## 4. Rules receive the full cart (interface) but are evaluated per-product (strategy)
 
-**The ambiguity:** the spec defines rules per product code. It is not explicit about whether a rule that covers multiple products (e.g. a hypothetical "buy APE + PUNK together, get 10% off") would be possible in the future.
+**The ambiguity:** the spec defines rules per product code but doesn't specify how rules should combine when the cart contains products covered by different rules.
 
-**Decision:** `DiscountRule.apply()` receives the full cart (all items and prices) and returns a complete total. Rules have full visibility over the cart.
+**Decision — interface:** `DiscountRule.apply()` receives the full cart (all items and prices). This keeps the interface future-proof for cross-product promotions (e.g. "buy APE + PUNK together, get 10% off"). Current rules simply ignore products they don't cover.
 
-Reasoning: a rule that only sees one product at a time cannot implement cross-product promotions. Passing the full cart costs nothing and keeps the interface future-proof. Current rules simply ignore products they don't cover.
+**Decision — evaluation:** `Checkout.total()` evaluates each product independently through all rules and picks the best subtotal per product. This allows buy2get1free on APE and bulk on PUNK to apply simultaneously in the same cart (see §7 for the full rationale).
 
 ---
 
